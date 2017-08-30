@@ -99,4 +99,4 @@ That got me as far as the final call to `svc 0`, which turns out to be interchan
 
 ![Solved](Hacked.png)
 
-The 'final' exploit is [here](exploit_pwn200_clean.py). I would like to revisit this in order to get my own shell code to work and possibly try a solution that uses ROP as well. I have some other more priorities to attend to first, but keep an eye out for updates to this writeup. In summary I really enjoyed this problem.
+The 'final' exploit is [here](exploit_pwn200_clean.py). I would like to revisit this in order to get my own shell code to work and possibly try a solution that uses ROP as well. I have some other more priorities to attend to first, but keep an eye out for updates to this writeup. I really enjoyed this problem, many thanks to the devs who created it.
