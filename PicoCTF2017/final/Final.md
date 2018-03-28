@@ -149,6 +149,6 @@ The offsets are slightly different on the server, because the environment is dif
 
 ### Comparison to other approaches
 
-[Caesaurus](https://github.com/Caesurus/PicoCTF2017/tree/master/Final_choose) presents a solution that does not require relative jumps (very interesting!) Team [Hackademia](https://hgarrereyn.gitbooks.io/th3g3ntl3man-ctf-writeups/content/2017/picoCTF_2017/problems/binary/Choose/Choose.html) took the same approach that I did.
+[Caesurus](https://github.com/Caesurus/PicoCTF2017/tree/master/Final_choose) presents a solution that does not require relative jumps (very interesting!) Team [Hackademia](https://hgarrereyn.gitbooks.io/th3g3ntl3man-ctf-writeups/content/2017/picoCTF_2017/problems/binary/Choose/Choose.html) took the same approach that I did.
 
 Really, someone should go and write some extra shell code to slay the dragon...
