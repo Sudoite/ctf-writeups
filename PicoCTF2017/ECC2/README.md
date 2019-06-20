@@ -2,6 +2,8 @@
 
 This is a level 4, 200-point cryptography problem from PicoCTF2017.
 
+[Note: As this is a PDF of a Markdown document, some text may be cut off in the code sections. Please direct your browser to https://github.com/Sudoite/ctf-writeups/tree/master/CSAW2018/turtles/turtles.md for the original write-up.]
+
 Here's the problem statement:
 
     Elliptic Curve: y^2 = x^3 + A*x + B mod M
