@@ -130,4 +130,4 @@ Now I just want to make sure I know the location of `free` in the GOT for the se
 
 ![exploit_working.png](./exploit_working.png)
 
-Hooray! [Here's](./exploit_aggregator.py) the full exploit code.
+Hooray! [Here's](./exploit-aggregator.py) the full exploit code.
