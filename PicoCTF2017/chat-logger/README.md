@@ -82,7 +82,7 @@ Let's try breaking something:
            42  	Yes. Are you aware of yours?
     .
 
-(Looks like `edit` does not take a `uid`.) Now I go into `gdb` with **pwndbg** and **angelheap** installed [see this write-up](https://github.com/Sudoite/ctf-writeups/blob/master/PicoCTF2017/matrix/EnterTheMatrix.md), and display the heap:
+(Looks like `edit` does not take a `uid`.) Now I go into `gdb` with **pwndbg** and **angelheap** installed [see this write-up](https://github.com/Sudoite/ctf-writeups/blob/master/PicoCTF2017/matrix/README.md), and display the heap:
 ![broke_heap](./pwndbg_broke_something.png)
 
 Great! We're writing into inappropriate places on the heap, and the AAAAAA's are visible as 0x41 in hexadecimal. Sounds like we're on the right track.

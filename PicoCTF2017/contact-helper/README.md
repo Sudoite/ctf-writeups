@@ -1,6 +1,6 @@
 # Contact Helper
 
-This 225-point, level 4 PicoCTF2017 binary exploitation challenge is worth the most points of any single challenge (except maybe the final challenge). Here's the [source code](./contact-helper.c) and description:
+This 225-point, level 4 PicoCTF2017 binary exploitation challenge is worth the most points of any single challenge (except maybe the final challenge). Here's the [source code](./contacts.c) and description:
 
     In order to keep track of the contact information
     in our ever-growing organization, I made a simple
@@ -189,4 +189,4 @@ Hooray! I didn't need to use any hints for this one. [Here's](./exploit_contact_
 
 ### Comparison to Other Approaches
 
-Actually, I didn't see any other write-ups for this problem. Maybe this is the first, but I probably just didn't look hard enough.
+I found a video write-up on YouTube by [kileak](https://www.youtube.com/watch?v=g1NYv3avSbU). The basic technique (known as a fastbin attack) is the same, but he leaks his LIBC address by overwriting a chunk size to make it appear larger, then freeing that chunk. Next, instead of overwriting a GOT address, he overwrites the function pointer to `exit`, which is located on the heap. He points to a LIBC adress identified by OneGadget in order to avoid having to pass a parameter to whatever `exit` now points to after the overwrite. Nice! I like this approach, as it is more robust. It is probably what the problem designers intended, and the solution I found is pure serendipity. So interesting. I love these problems.

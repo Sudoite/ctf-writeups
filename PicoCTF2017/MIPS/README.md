@@ -51,4 +51,4 @@ I'd never heard of branch-delay slots before, so this problem was great for my l
 
  ### Comparison to Other approaches
 
- The [Insane Potato Team](https://github.com/in-s-ane/picoctf-2017/blob/master/MIPS_140/solution.cpp) bring up the possibility of using a constraint solver. They also were able to use brute force for this particular problem. 
+ The [Insane Potato Team](https://github.com/in-s-ane/picoctf-2017/blob/master/MIPS_140/solution.cpp) bring up the possibility of using a constraint solver. They also were able to use brute force for this particular problem.
