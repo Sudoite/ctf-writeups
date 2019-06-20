@@ -1,5 +1,7 @@
 # turtles
 
+[Note: As this is a PDF of a Markdown document, some text may be cut off in the code sections. Please direct your browser to https://github.com/Sudoite/ctf-writeups/tree/master/CSAW2018/turtles/turtles.md for the original write-up.]
+
 This is a 250-point binary exploitation problem from CSAW2018. It had 65 solves in a competition with about 2500 teams. I ran down several blind alleys and made a few mistakes in solving this problem, and decided to keep those experiences in this write-up.
 
 ## Problem description
