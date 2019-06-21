@@ -98,8 +98,10 @@ At that point, I was able to get an exploit working locally, but not on the serv
 2. Use `LD_PRELOAD` to specify the libc version to reference when spinning up the `matrix` process with `pwntools`:
 
 
-    p=process('/home/ctf/Documents/PicoCTF2017/Exploit3/matrix/matrix_copy',
-        env={"LD_PRELOAD" : "/home/ctf/Documents/PicoCTF2017/Exploit3/matrix/libc.so.6"})`
+```
+    p=process('./matrix/matrix_copy',
+        env={"LD_PRELOAD" : "./matrix/libc.so.6"})`
+```
 
 At that point, I can determine the exact distance from the libc address for the main arena to the base of libc through a call to `vmmap` in `pwndbg`:
 
