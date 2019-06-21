@@ -1,5 +1,5 @@
 
-# pwn2.md
+# pwn2
 
 nc pwn.tamuctf.com 4322
 

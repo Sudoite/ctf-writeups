@@ -1,4 +1,4 @@
-# pwn5.md
+# pwn5
 
 nc pwn.tamuctf.com 4325
 
@@ -6,7 +6,7 @@ For this problem, `ls` is running as a service and it's therefore amusing that t
 
 ![./run-cmd.png](./run-cmd.png)
 
-If I put "/bin/sh" at wherever on the stack ends up being `[ebp - 0x12]` when three lines before `run_cmd` gets called, then I'll pass a pointer to that string to a call to `system` and I'm good to go without ever needing to leak a stack address. Nice.
+If I put `"/bin/sh"` at wherever on the stack ends up being `[ebp - 0x12]` when three lines before `run_cmd` gets called, then I'll pass a pointer to that string to a call to `system` and I'm good to go without ever needing to leak a stack address. Nice.
 
 Next I just need to run the program and take a look at the stack to figure out where I need to be overwriting information.
 

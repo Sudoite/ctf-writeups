@@ -1,5 +1,5 @@
 
-# pwn1.md
+# pwn1
 
 This is an easy pwn challenge from TamuCTF2019.
 

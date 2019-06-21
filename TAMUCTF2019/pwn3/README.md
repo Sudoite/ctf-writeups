@@ -1,4 +1,4 @@
-# pwn3.md
+# pwn3
 
 nc pwn.tamuctf.com 4323
 
