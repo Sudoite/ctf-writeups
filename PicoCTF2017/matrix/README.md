@@ -69,7 +69,7 @@ Because this is a 32-bit application, the size of a float is also the size of an
 
 ### Exploitation
 
-My first consideration was that potentially the library is vulnerable to the [unlink](https://sploitfun.wordpress.com/2015/02/26/heap-overflow-using-unlink/) vulnerability in `malloc.c`. The libc version used to run the code on the server can be obtained by `ssh`'ing into the server (see the `keyz` problem in Level 1 of PicoCTF2017). A check of the source code for `malloc.c` in libc 2.19 suggests that it is not vulnerable to the unlink exploit, and I double-checked by pulling the actual `libc.so.6` file from the server, opening it up in **IDA Pro**, and finding the error message in `malloc.c` associated with the test that prevents exploitation of the unlink vulnerability.
+My first consideration was that potentially the library is vulnerable to the [unlink](https://sploitfun.wordpress.com/2015/02/26/heap-overflow-using-unlink/) vulnerability in `malloc.c`. The libc version used to run the code on the server can be obtained by `ssh`'ing into the server (see the `keyz` problem in Level 1 of PicoCTF2017). A check of the source code for `malloc.c` in libc 2.19 suggests that it is not vulnerable to the unlink exploit, and I double-checked by pulling the actual `libc.so.6` file from the server, opening it up in `IDA Pro`, and finding the error message in `malloc.c` associated with the test that prevents exploitation of the unlink vulnerability.
 
 Next, I thought about overwriting a function pointer in the Global Offset Table in order to return to libc and call `system`. Because Address Space Layout Randomization (ASLR) is enabled for this application, the heap and libc will both appear in different locations with each execution of the code. Thus, I needed to leak a heap address and libc address. That is straightforward, however: a libc address can be obtained by freeing a block that is larger than the largest fastbin size. The `fwd` and `bk` pointers for the first block freed into this manner will both point into libc, to the main arena. Next, creating each matrix actually malloc's two blocks of memory: the first contains the number of rows and columns for the matrix and a pointer to the data for the matrix, and the second contains said data. Thus, retrieving the `data` pointer with the right `get` command will retrieve a heap address.
 
@@ -90,18 +90,18 @@ I was missing something, so I looked for other discussions of the problem that d
 
 > Free is passed a pointer to data that you control.
 
-With that, I noticed that actually the `data` pointer in a block allocated in the heap could be replaced with a pointer to an address in the Global Offset Table! That's the trick for this problem. Then, simply calling `set [exploited_matrix_index] 0 0 [float]`, where [exploited_matrix_index] denotes the matrix with the overwritten data pointer and [float] denotes the address of `system`, will call `system` instead of the original libc function referenced at that location in the Global Offset Table. Now we just need to either place a pointer to "/bin/sh" into `%eax` right as `system` gets called (difficult), or pass "/bin/sh" in as a parameter to the original function that we replaced with the pointer to `system`. I decided to use `sscanf`, which gets called from `handle_command`. Thus, after overwriting the GOT entry for `sscanf`, we simply type "/bin/sh" in as a "command", and `system("/bin/sh")` gets called! Nice!!
+With that, I noticed that actually the `data` pointer in a block allocated in the heap could be replaced with a pointer to an address in the Global Offset Table! That's the trick for this problem. Then, simply calling `set [exploited_matrix_index] 0 0 [float]`, where `[exploited_matrix_index]` denotes the matrix with the overwritten data pointer and `[float]` denotes the address of `system`, will call `system` instead of the original `libc` function referenced at that location in the Global Offset Table. Now we just need to either place a pointer to `"/bin/sh"` into `%eax` right as `system` gets called (difficult), or pass `"/bin/sh"` in as a parameter to the original function that we replaced with the pointer to `system`. I decided to use `sscanf`, which gets called from `handle_command`. Thus, after overwriting the GOT entry for `sscanf`, we simply type `"/bin/sh"` in as a "command", and `system("/bin/sh")` gets called! Nice!!
 
-At that point, I was able to get an exploit working locally, but not on the server. The reason was that the address in the arena that I was using for the libc address comes at the very end of the libc binary, and I was not running the exact same libc version locally that is on the server. So, if I were to simply get the offset to `system` from a call on the server to `readelf -s /lib32/libc.so.6 | grep system`, it would not be enough information. A solution is to call `ldd /lib32/libc.so.6` on the server, getting the interpreter running this version of libc, and then download both the interpreter and libc to get a local version of the `matrix` binary running with both the server's interpreter and the server's libc in memory. This required two steps for me:
+At that point, I was able to get an exploit working locally, but not on the server. The reason was that the address in the arena that I was using for the `libc` address comes at the very end of the `libc` binary, and I was not running the exact same `libc` version locally that is on the server. So, if I were to simply get the offset to `system` from a call on the server to `readelf -s /lib32/libc.so.6 | grep system`, it would not be enough information. A solution is to call `ldd /lib32/libc.so.6` on the server, getting the interpreter running this version of libc, and then download both the interpreter and `libc` to get a local version of the `matrix` binary running with both the server's interpreter and the server's `libc` in memory. This required two steps for me:
 
 1. Use the [patchelf](https://nixos.org/patchelf.html) tool to modify the `matrix` binary and specify a path to the new dynamic linker copied from the server, using the `--set-interpreter` feature for `patchelf`.
-2. Use `LD_PRELOAD` to specify the libc version to reference when spinning up the `matrix` process with **pwntools**:
+2. Use `LD_PRELOAD` to specify the libc version to reference when spinning up the `matrix` process with `pwntools`:
 
 
     p=process('/home/ctf/Documents/PicoCTF2017/Exploit3/matrix/matrix_copy',
         env={"LD_PRELOAD" : "/home/ctf/Documents/PicoCTF2017/Exploit3/matrix/libc.so.6"})`
 
-At that point, I can determine the exact distance from the libc address for the main arena to the base of libc through a call to `vmmap` in **pwndbg**:
+At that point, I can determine the exact distance from the libc address for the main arena to the base of libc through a call to `vmmap` in `pwndbg`:
 
 ![vmmap_correct](vmmap_correct.png)
 
@@ -113,6 +113,7 @@ That offset is now the same in my local process as it is on the server. Running 
 
 The final exploit is as follows:
 
+```
     from pwn import *
     from os import *
     import struct
@@ -199,8 +200,8 @@ The final exploit is as follows:
     p.send('/bin/sh\n')
 
     p.interactive()
-
+```
 
 ### Comparison to other approaches
 
-Other writeups read a libc address directly from the GOT table. In leaking a libc address close to that of the `system` function, it should be possible to avoid having to actually load the server's libc version into a running process. I found the practice associated with doing so to be useful training, however, for future CTFs.
+Other writeups read a `libc` address directly from the GOT table. In leaking a `libc` address close to that of the `system` function, it should be possible to avoid having to actually load the server's `libc` version into a running process. I found the practice associated with doing so to be useful training, however, for future CTFs.
