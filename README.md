@@ -4,7 +4,7 @@ This is a repository of writeups for various CTF challenges. I am intentionally 
 
 Here are some of my favorites:
 
-1. [Turtles](./CSAW2018/turtles/README.md) from CSAW 2018 -- an entertaining Objective-C exploit that makes use of heap exploitation, format string attacks, and a buffer overflow / ROP chain
+1. [Turtles](./CSAW2018/turtles) from CSAW 2018 -- an entertaining Objective-C exploit that makes use of heap exploitation, format string attacks, and a buffer overflow / ROP chain
 
 2. [Leakless](./FireshellCTF2019/leakless/README.md) from Fireshell CTF 2019 -- a manual implementation of an attack that hijacks dynamic symbol resolution in Linux
 
