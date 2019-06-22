@@ -68,6 +68,7 @@ Here are some of my favorites:
 
 3. [pwn3](./TAMUCTF2019/pwn3/README.md) (TAMUCTF 2019): simple 32-bit Linux `x86` shellcode, executed on the stack
 
+4. [gimmeyourshell](./INSHack2019/pwn/gimmeyourshell/README.md) (INSHack 2019): 64-bit Linux `x86` shellcode, executed on the stack
 
 #### Bypassing stack canaries
 
