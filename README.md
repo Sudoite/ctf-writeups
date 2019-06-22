@@ -22,9 +22,10 @@ Here are some of my favorites:
 
 2. [Chat Logger](./PicoCTF2017/chat-logger) (PicoCTF 2017): abuse a bug in the program to change the maximum length of a message, then edit a short message to overwrite a subsequent chunk in the heap
 
-3. [Deeper into the Matrix](./PicoCTF2017/matrix-deeper): get `calloc` to return a null pointer by allocating too much memory, and exploit the null pointer
+3. [Enter the Matrix](./PicoCTF2017/matrix) (PicoCTF 2017): Exploit a bug in how rows and columns of a matrix are accessed to write beyond a chunk's boundary
 
-4. [Enter the Matrix](./PicoCTF2017/matrix): Exploit a bug in how rows and columns of a matrix are accessed to write beyond a chunk's boundary
+4. [Deeper into the Matrix](./PicoCTF2017/matrix-deeper) (PicoCTF 2017): get `calloc` to return a null pointer by allocating too much memory, and exploit the null pointer
+
 
 ###### Use After Free
 
