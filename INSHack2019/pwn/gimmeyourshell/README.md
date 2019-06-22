@@ -141,3 +141,7 @@ sleep(DELAY)
 p.send(payload2)
 p.interactive()
 ```
+
+### Comparison to other approaches
+
+[beerpwn](https://github.com/beerpwn/ctf/tree/master/2019/INS'Hack_ctf/gimme_your_shell) actually solved this challenge using ROP, but notes in their write-up that the intended solution is to jump to the shellcode, as ASLR was disabled on the server.
