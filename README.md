@@ -46,6 +46,10 @@ Here are some of my favorites:
 
 5. [pwn5](./TAMUCTF2019/pwn5/README.md) (TAMUCTF 2019): simple intro-level ROP problem
 
+6. [Defcon Quals Speedrun 1](./DefConQuals2019/speedrun1/README.md) (DEF CON Quals 2019): simple ROP problem
+
+7. [Defcon Quals Speedrun 2](./DefConQuals2019/speedrun2/README.md) (DEF CON Quals 2019): ROP problem without a `libc` version provided
+
 
 #### Format Strings
 
