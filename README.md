@@ -4,13 +4,13 @@ This is a repository of writeups for various CTF challenges. I am intentionally 
 
 Here are some of my favorites:
 
-1. [Turtles](./CSAW2018/turtles/turtles.md) from CSAW 2018 -- an entertaining Objective-C exploit that makes use of heap exploitation, format string attacks, and a buffer overflow / ROP chain
+1. [Turtles](./CSAW2018/turtles/README.md) from CSAW 2018 -- an entertaining Objective-C exploit that makes use of heap exploitation, format string attacks, and a buffer overflow / ROP chain
 
-2. [Leakless](./FireshellCTF2019/leakless/leakless.md) from Fireshell CTF 2019 -- a manual implementation of an attack that hijacks dynamic symbol resolution in Linux
+2. [Leakless](./FireshellCTF2019/leakless/README.md) from Fireshell CTF 2019 -- a manual implementation of an attack that hijacks dynamic symbol resolution in Linux
 
-3. [Choose](./PicoCTF2017/final/Final.md): the final challenge for PicoCTF2017, in which I independently discovered an approach for bypassing a stack canary using characteristics of memory alignment for C structs in the GCC compiler
+3. [Choose](./PicoCTF2017/final/README.md): the final challenge for PicoCTF2017, in which I independently discovered an approach for bypassing a stack canary using characteristics of memory alignment for C structs in the GCC compiler
 
-4. [ECC2](./PicoCTF2017/ECC2/ECC2.md): an elliptic curve cryptography problem from PicoCTF 2017
+4. [ECC2](./PicoCTF2017/ECC2/README.md): an elliptic curve cryptography problem from PicoCTF 2017
 
 ## By category and technique
 
@@ -34,7 +34,7 @@ Here are some of my favorites:
 
 #### ROP Chain
 
-1. [Turtles](./CSAW2018/README.md) (CSAW2018): use of One Gadget
+1. [Turtles](./CSAW2018/turtles/README.md) (CSAW2018): use of One Gadget
 
 2. [OTP-Server](./FacebookCTF2019/README.md) (FaceBook CTF 2019): write a ROP chain one byte at a time using random bytes with values I can test
 
@@ -46,7 +46,11 @@ Here are some of my favorites:
 
 5. [pwn5](./TAMUCTF2019/pwn5/README.md) (TAMUCTF 2019): simple intro-level ROP problem
 
-6. [Defcon Quals Speedrun 1](./DefConQuals2019/speedrun1/README.md) (DEF CON Quals 2019): simple ROP problem
+##### Statically-linked binary
+
+1. [Defcon Quals Speedrun 1](./DefConQuals2019/speedrun1/README.md) (DEF CON Quals 2019): simple ROP problem
+
+2. [ropberry](./INSHack2019/pwn/ropberry/README.md)
 
 7. [Defcon Quals Speedrun 2](./DefConQuals2019/speedrun2/README.md) (DEF CON Quals 2019): ROP problem without a `libc` version provided
 
@@ -66,9 +70,9 @@ Here are some of my favorites:
 
 2. [Choose](./PicoCTF2017/final/README.md): 32-bit Linux `x86` shellcode to execute `execve`, split into 11-byte sections and using relative jumps to string the shellcode together
 
-3. [pwn3](./TAMUCTF2019/pwn3/README.md) (TAMUCTF 2019): simple 32-bit Linux `x86` shellcode, executed on the stack
+3. [pwn3](./TAMUCTF2019/pwn3/README.md) (TAMUCTF 2019): simple Linux `x86` shellcode, executed on the stack
 
-4. [gimmeyourshell](./INSHack2019/pwn/gimmeyourshell/README.md) (INSHack 2019): 64-bit Linux `x86` shellcode, executed on the stack
+4. [gimmeyourshell](./INSHack2019/pwn/gimmeyourshell/README.md) (INSHack 2019): Linux `x86-64` shellcode, executed on the stack
 
 #### Bypassing stack canaries
 
