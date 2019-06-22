@@ -1,7 +1,7 @@
 
 # SpeedRun 1
 
-This is the first speedrun challenge for DEF CON Quals 2019. I did not have time to work on this problem for more than two hours during the actual CTF, so I ended up solving it after the competition and therefore could only develop a local exploit. The speedrun challenges look like they are intended to be a little simpler than the standard pwnable challenges: they are meant for people to practice their skills, and accordingly I found them instructive.
+This is the first speedrun challenge for DEF CON Quals 2019. I did not have time to work on this problem for more than two hours during the actual CTF (and was not fast enough to solve it in two hours, so I ended up solving it after the competition and therefore could only develop a local exploit. The speedrun challenges look like they are intended to be a little simpler than the standard pwnable challenges: they are meant for people to practice their skills, and accordingly I found them instructive.
 
 ### Reconnaissance
 
@@ -165,4 +165,4 @@ I can't get a remote shell because the competition has ended, but nonetheless th
 
 ### Comparison to other approaches
 
-[guyinatuxedo](https://github.com/guyinatuxedo/ctf/tree/master/defconquals2019/speedrun/s1) takes the same approach that I did. [k1nm3nh4ck3r](https://ctftime.org/writeup/15287) does everything from the command line, building up ROP gadgets in a note pad and then just executing the python code as a single line, directly in a terminal. 
+[guyinatuxedo](https://github.com/guyinatuxedo/ctf/tree/master/defconquals2019/speedrun/s1) takes the same approach that I did. [k1nm3nh4ck3r](https://ctftime.org/writeup/15287) does everything from the command line, building up ROP gadgets in a note pad and then just executing the python code as a single line, directly in a terminal.
