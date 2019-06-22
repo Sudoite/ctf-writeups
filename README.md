@@ -29,7 +29,7 @@ Here are some of my favorites:
 
 ###### Use After Free
 
-1. [Aggregator](./PicoCTF2017/Aggregator) (PicoCTF 2017): Overwriting the Global Offset Table using Use After Free
+1. [Aggregator](./PicoCTF2017/aggregator) (PicoCTF 2017): Overwriting the Global Offset Table using Use After Free
 
 2. [Contact Helper](./PicoCTF2017/contact-helper) (PicoCTF 2017): unintended solution to a heap exploitation problem with a UAF vulnerability.
 
@@ -69,7 +69,7 @@ Here are some of my favorites:
 
 1. [Terminator Canary](./HackIT2017_pwn200) (HackIT 2017): 32-bit ARM shellcode
 
-2. [Choose](./PicoCTF2017/final): 32-bit Linux `x86` shellcode to execute `execve`, split into 11-byte sections and using relative jumps to string the shellcode together
+2. [Choose](./PicoCTF2017/final) (PicoCTF 2017): 32-bit Linux `x86` shellcode to execute `execve`, split into 11-byte sections and using relative jumps to string the shellcode together
 
 3. [pwn3](./TAMUCTF2019/pwn3) (TAMUCTF 2019): simple Linux `x86` shellcode, executed on the stack
 
@@ -84,7 +84,7 @@ Here are some of my favorites:
 
 #### Bypassing full RELRO
 
-1. [Deeper into the Matrix](./PicoCTF2017/matrix-deeper) (PicoCTF 2017): bypass full RELRO protection by writing to a writable hook to `malloc`, `calloc`, or `free` in `libc`
+1. [Deeper Into the Matrix](./PicoCTF2017/matrix-deeper) (PicoCTF 2017): bypass full RELRO protection by writing to a writable hook to `malloc`, `calloc`, or `free` in `libc`
 
 
 #### Simple Buffer Overflow
