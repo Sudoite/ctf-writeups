@@ -12,6 +12,7 @@ Here are some of my favorites:
 
 4. [ECC2](./PicoCTF2017/ECC2): an elliptic curve cryptography problem from PicoCTF 2017
 
+
 ## By category and technique
 
 ### Pwnable Challenges
@@ -104,6 +105,8 @@ Here are some of my favorites:
 1. [ECC2](./PicoCTF2017/ECC2) (PicoCTF 2017): elliptic curve cryptography problem, solved with the Pohlig-Hellman algorithm
 
 2. [Encrypted Shell](./PicoCTF2017/encrypted-shell) (PicoCTF 2017): Application of Pollard's kangaroo algorithm to solve the discrete log problem to get a private key for the Diffie-Hellman public key exchange protocol. (Not an original solution.)
+
+3. [Blind](./VolgaCTF2019/blind) (Volga CTF Quals 2019): Implementation of an RSA blinding attack
 
 ### Reverse Engineering Challenges
 
