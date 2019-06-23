@@ -96,6 +96,8 @@ Here are some of my favorites:
 
 2. [pwn2](./TAMUCTF2019/pwn2) (TAMUCTF 2019): return to a function to print the flag
 
+3. [warm](./VolgaCTF2019/warm) (VolgaCTF Quals 2019): overwrite a file name to open an arbitrary file on the server
+
 
 ### Cryptography Challenges
 
@@ -110,6 +112,8 @@ Here are some of my favorites:
 2. [Forest](./PicoCTF2017/forest) (PicoCTF 2017): Straightforward problem reversing a binary that looks up symbols in a tree to generate a message.
 
 3. [Much Ado About Hacking](./PicoCTF2017/much-ado) (PicoCTF 2017): decompiling a program written in the Shakespeare Programming Language
+
+4. [Warm](./VolgaCTF2019/warm) (VolgaCTF Quals 2019): this is a pwnable challenge, but it shows how easy it is to use Ghidra to reverse an ARM executable
 
 ### Web Challenges
 
@@ -137,7 +141,9 @@ Here are some of my favorites:
 
 ### ARM
 
-1. [Terminator Canary](./HackIT2017_pwn200) -- use of thumb mode during exploit development; crafting ARM shellcode
+1. [Terminator Canary](./HackIT2017_pwn200) (HackIT CTF 2017) use of thumb mode during exploit development; crafting ARM shellcode
+
+2. [Warm](./VolgaCTF2019/warm) (Volga CTF 2019): use of Ghidra to reverse a 32-bit ARM binary
 
 ### MIPS
 
