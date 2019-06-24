@@ -4,13 +4,15 @@ This is a repository of writeups for various CTF challenges. I am intentionally 
 
 Here are some of my favorites:
 
-1. [Turtles](./CSAW2018/turtles) from CSAW 2018 -- an entertaining Objective-C exploit that makes use of heap exploitation, format string attacks, and a buffer overflow / ROP chain
+1. [Turtles](./CSAW2018/turtles) (CSAW 2018): an entertaining Objective-C exploit that makes use of heap exploitation, format string attacks, and a buffer overflow / ROP chain.
 
-2. [Leakless](./FireshellCTF2019/leakless) from Fireshell CTF 2019 -- a manual implementation of an attack that hijacks dynamic symbol resolution in Linux
+2. [Leakless](./FireshellCTF2019/leakless) (Fireshell CTF 2019): a manual implementation of an attack that hijacks dynamic symbol resolution in Linux.
 
-3. [Choose](./PicoCTF2017/final): the final challenge for PicoCTF2017, in which I independently discovered an approach for bypassing a stack canary using characteristics of memory alignment for C structs in the GCC compiler
+3. [Choose](./PicoCTF2017/final) (PicoCTF 2017 final challenge): I independently discovered a (possibly well-known) approach for bypassing a stack canary using characteristics of memory alignment for C structs in the GCC compiler.
 
-4. [ECC2](./PicoCTF2017/ECC2): an elliptic curve cryptography problem from PicoCTF 2017
+4. [ECC2](./PicoCTF2017/ECC2) (PicoCTF 2017): this solution to an elliptic curve cryptography problem uses the Pohlig-Hellman algorithm.
+
+5. [Silk Road I](./ASISCTF2019/silkroad) (ASIS CTF Quals 2019): an unintended solution to a ROP chain / reverse engineering problem involving a clever way to get a large value into the `rbx` register despite an apparent dearth of ROP gadgets containing `rbx`. That sets up a call to `read` and subsequent pivot to the `.bss` section to continue the ROP chain.
 
 
 ## By category and technique
@@ -51,6 +53,8 @@ Here are some of my favorites:
 5. [pwn5](./TAMUCTF2019/pwn5) (TAMUCTF 2019): simple intro-level ROP problem
 
 6. [Defcon Quals Speedrun 2](./DefConQuals2019/speedrun2/README.md) (DEF CON Quals 2019): ROP problem without a `libc` version provided
+
+7. [Silk Road I](./ASISCTF2019/silkroad) (ASIS CTF Quals 2019): Unintended solution involving a clever way to move a large value into `rbx` while setting up a pivot to the `.bss` section with a call to `read`.
 
 ##### Statically-linked binary
 
@@ -121,6 +125,8 @@ Here are some of my favorites:
 3. [Much Ado About Hacking](./PicoCTF2017/much-ado) (PicoCTF 2017): decompiling a program written in the Shakespeare Programming Language
 
 4. [Warm](./VolgaCTF2019/warm) (VolgaCTF Quals 2019): this is a pwnable challenge, but it shows how easy it is to use Ghidra to reverse an ARM executable
+
+5. [Silk Road I](./ASISCTF2019/silkroad) (ASIS CTF Quals 2019): This pwnable challenge requires reverse-engineering some code and satisfying a set of constraints to compute a secret key, in order to proceed to the actual vulnerable section of the code.
 
 ### Web Challenges
 
