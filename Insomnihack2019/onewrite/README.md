@@ -2,8 +2,7 @@
 
 Insomnihack 2019
 
-This was a fun and challenging pwnable challenge for the Insomnihack quals.
-Print stack just prints `%p\n`, pretty straightforward. So that gives me a stack address.
+This was a fun and challenging pwnable challenge for the Insomnihack quals. It was worth 82 points as it was considered relatively easy, but I learned quite a bit from the problem.
 
 ### Reconnaissance
 
@@ -97,7 +96,7 @@ Here's the `do_leak` function:
 
 I am writing this up a few months after the competition, but I remember that my idea was to overwrite a hook of some sort to jump to the code section, namely back to `main` in order to allow me to set up a ROP. I was reminded of the approach I learned from PicoCTF 2017's [Deeper Into the Matrix](https://github.com/Sudoite/ctf-writeups/tree/master/PicoCTF2017/matrix-deeper) problem, which involved bypassing full RELRO by overwriting a writable hook for `calloc` in `libc`. Since this binary calls `exit()` right after completing the write, my thought was to make use of some sort of writable `libc` hook for an exit handler if possible.
 
-[Here](https://binholic.blogspot.com/2017/05/notes-on-abusing-exit-handlers.html) is a write-up on abusing exit handlers. Over the course of an hour or two during the competition, I read through blog posts such as that one, I stepped through the `libc` code that gets called when `exit()` is called, and I took a look at the writable portion of `libc` for sections that had names that look useful. I found the following handler in the writable section of `libc`, which looked promising:
+[Here](https://binholic.blogspot.com/2017/05/notes-on-abusing-exit-handlers.html) is a write-up on abusing exit handlers. Over the course of an hour or two during the competition, I read up on how exit handlers work, then I stepped through the `libc` code that gets called when `exit()` is called, and I took a look at the writable portion of `libc` for sections that had names that look useful. I found the following handler in the writable section of `libc`, which looked promising:
 
 ![./exit_handler_writable_hook.png](./exit_handler_writable_hook.png)
 
@@ -128,12 +127,28 @@ pwndbg> x /20xg $rsp
 0x7ffdf5e45c78: 0x00007fe2c2b5927a  0x0000000000000000
 ```
 
-Having created the space for my ROP chain, I then populated it.
+Having created the space for my ROP chain, I then populated it. My ROP chain calls `execve('/bin/sh', NULL, NULL)` as follows:
 
-Here's the exploit in action:
+```
+# rdi: pointer to "/bin/sh"
+# rsi: null
+# rdx: null
+# rax: 0x3b
+# jump to SYSCALL
+```
+
+[Here's](./exploit-onewrite.py) the exploit code (with debugging information left in for clarity), and here's the exploit in action:
 
 ![onewrite_working_locally.png](./onewrite_working_locally.png)
 
 And the flag:
 
 ![solved_onewrite.png](./solved_onewrite.png)
+
+### Comparison to other approaches
+
+I was interested to see how others had approached this problem. [MadHat](https://go-madhat.github.io/onewrite-writeup/) takes a similar approach to me, except that they write the ROP chain to the `.bss` section. [Auxy233](https://github.com/Auxy233/Writeups/blob/master/2019/2019-01-20-inso-hack.md#onewrite) makes the "obvious" choice: they leak the stack address first and then overwrite the last two bytes of the return address from `main` in order to loop back to `do_leak`. They use `ropper` to generate the ROP chain and also place it in the `.bss` section. [EmpireCTF](https://github.com/EmpireCTF/empirectf/blob/master/writeups/2019-01-19-Insomni-Hack-Teaser/README.md#onewrite) builds the ROP chain by placing two hooks in the exit handler sequence, in something they refer to as the `_fini_array` (I'll have to read into that). The idea is that each time `exit` is called, first they write part of the ROP chain, and then they loop back to `main`. That author places the ROP chain on the stack.
+
+Finally, [r00ta](https://github.com/r00ta/myWriteUps/blob/master/InsomnihackTeaser2019/exploit.py) from [ChocolateMakers](https://ctftime.org/team/603) has an interesting take. He starts by leaking a stack address and overwrites the last byte, fair enough, but the ROP chain is pretty neat. He found a gadget that pops `rsp`, and so he simply returns to `do_leak` to perform a write to the ROP chain, then in returning from `do_leak` he pops `rsp`, and pops the address of the return address to `do_leak`. That creates an infinite loop that he uses to create his ROP chain, and his final action is to overwrite the address containing that value of `rsp` that he was continually popping, and pop the start of the ROP chain into `rsp` instead. I really liked that creative solution.
+
+Five write-ups, five solutions. Nice problem design.
