@@ -14,6 +14,8 @@ Here are some of my favorites:
 
 5. [Silk Road I](./ASISCTF2019/silkroad) (ASIS CTF Quals 2019): an unintended solution to a ROP chain / reverse engineering problem involving a clever way to get a large value into the `rbx` register despite an apparent dearth of ROP gadgets containing `rbx`. That sets up a call to `read` and subsequent pivot to the `.bss` section to continue the ROP chain.
 
+6. [Onewrite](./Insomnihack2019/onewrite) (Insomnihack 2019): Overwrite a `libc` writable exit handler hook to loop back to the main function and set up a ROP chain. There were many creative solutions to this challenge.
+
 
 ## By category and technique
 
@@ -56,12 +58,15 @@ Here are some of my favorites:
 
 7. [Silk Road I](./ASISCTF2019/silkroad) (ASIS CTF Quals 2019): Unintended solution involving a clever way to move a large value into `rbx` while setting up a pivot to the `.bss` section with a call to `read`.
 
+8. [Onewrite](./Insomnihack2019/onewrite) (Insomnihack 2019): Overwrite a `libc` writable hook for an exit handler to loop back to the main function and set up a ROP chain.
+
 ##### Statically-linked binary
 
 1. [Defcon Quals Speedrun 1](./DefConQuals2019/speedrun1) (DEF CON Quals 2019): simple ROP problem
 
 2. [ropberry](./INSHack2019/pwn/ropberry): 64-bit ROP chain
 
+3. [Onewrite](./Insomnihack2019/onewrite) (Insomnihack 2019): 64-bit ROP chain and statically-linked binary, but definitely non-trivial!
 
 #### Format Strings
 
