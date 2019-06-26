@@ -141,6 +141,8 @@ Here are some of my favorites:
 
 2. [Artisinal Hand-Crafted HTTP3](./PicoCTF2018/web/ArtisinalHTTP3) (PicoCTF 2018): an HTTP-by-hand problem, pretty straightforward.
 
+3. [Flaskcards](./PicoCTF2018/web/Flaskcards) (PicoCTF 2018): a simple Server-Side Template Injection (SSTI) problem involving a Flask website running on Jinja2. 
+
 ### Forensics Challenges
 
 1. [Puzzlingly Accountable](./PicoCTF2017/puzzlingly-accountable): simple extraction of PNG files from a PCAP problem with Wireshark and a little Python scripting
