@@ -141,6 +141,8 @@ Here are some of my favorites:
 
 1. [Puzzlingly Accountable](./PicoCTF2017/puzzlingly-accountable): simple extraction of PNG files from a PCAP problem with Wireshark and a little Python scripting
 
+2. [Core](./PicoCTF2018/core) (PicoCTF 2018): analyze a core dump
+
 ### Miscellaneous Challenges
 
 #### Scripting
@@ -180,3 +182,5 @@ Here are some of my favorites:
 ### GDB
 
 1. [pwn5](./TAMUCTF2019/pwn5) (TAMUCTF 2019): `set follow-fork-mode parent` to step over a call to fork `execve`
+
+2. [core](./PicoCTF2018/core) (PicoCTF 2018): `gdb [binary] [core]` to analyze a core dump
