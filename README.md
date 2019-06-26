@@ -141,6 +141,12 @@ Here are some of my favorites:
 
 1. [Puzzlingly Accountable](./PicoCTF2017/puzzlingly-accountable): simple extraction of PNG files from a PCAP problem with Wireshark and a little Python scripting
 
+### Miscellaneous Challenges
+
+#### Scripting
+
+1. [Script Me](./PicoCTF2018/misc/scriptme)(PicoCTF 2018): Fun with parentheses math
+
 ## By Language
 
 (If not listed here, the challenge is probably written in C or Python.)
