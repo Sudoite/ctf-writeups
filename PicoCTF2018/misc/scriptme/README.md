@@ -23,4 +23,4 @@ Here's the flag:
 
 ### Comparison to other approaches
 
-Other solutions reported right after the PicoCTF2018 competition used similar approaches. [findneo](https://ctftime.org/writeup/12068) has a clever use of `reduce()` in Python. Otherwise, the write-ups on CTF Time are all more or less the same.
+Other solutions reported right after the PicoCTF2018 competition used similar approaches. [findneo](https://ctftime.org/writeup/12068) has a clever use of `reduce()` in Python.
