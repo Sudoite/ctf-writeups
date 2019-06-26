@@ -121,6 +121,8 @@ Here are some of my favorites:
 
 3. [Blind](./VolgaCTF2019/blind) (Volga CTF Quals 2019): Implementation of an RSA blinding attack
 
+4. [eleCTRic](./PicoCTF2018/crypto/eleCTRic) (PicoCTF 2018): An attack on an improperly-implemented version of AES using counter mode.
+
 ### Reverse Engineering Challenges
 
 1. [MIPS](./PicoCTF2017/MIPS) (PicoCTF 2017): reversing a MIPS binary containing branch-delay slots; usage of the SPIM simulator
