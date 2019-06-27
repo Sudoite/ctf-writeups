@@ -123,6 +123,10 @@ Here are some of my favorites:
 
 4. [eleCTRic](./PicoCTF2018/crypto/eleCTRic) (PicoCTF 2018): An attack on an improperly-implemented version of AES using counter mode.
 
+#### RSA
+
+1. [Super Safe RSA 2](./PicoCTF2018/crypto/SuperSafeRSA2) (PicoCTF 2018): application of Weiner's attack in the case of small `d`
+
 ### Reverse Engineering Challenges
 
 1. [MIPS](./PicoCTF2017/MIPS) (PicoCTF 2017): reversing a MIPS binary containing branch-delay slots; usage of the SPIM simulator
@@ -141,7 +145,7 @@ Here are some of my favorites:
 
 2. [Artisinal Hand-Crafted HTTP3](./PicoCTF2018/web/ArtisinalHTTP3) (PicoCTF 2018): an HTTP-by-hand problem, pretty straightforward.
 
-3. [Flaskcards](./PicoCTF2018/web/Flaskcards) (PicoCTF 2018): a simple Server-Side Template Injection (SSTI) problem involving a Flask website running on Jinja2. 
+3. [Flaskcards](./PicoCTF2018/web/Flaskcards) (PicoCTF 2018): a simple Server-Side Template Injection (SSTI) problem involving a Flask website running on Jinja2.
 
 ### Forensics Challenges
 
