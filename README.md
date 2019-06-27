@@ -147,6 +147,8 @@ Here are some of my favorites:
 
 3. [Flaskcards](./PicoCTF2018/web/Flaskcards) (PicoCTF 2018): a simple Server-Side Template Injection (SSTI) problem involving a Flask website running on Jinja2.
 
+4. [Flaskcards Skeleton Key](./PicoCTF2018/web/FlaskcardsSkeletonKey) (PicoCTF2018): forge an admin cookie given the secret key to decrypt Flask session cookies.
+
 ### Forensics Challenges
 
 1. [Puzzlingly Accountable](./PicoCTF2017/puzzlingly-accountable): simple extraction of PNG files from a PCAP problem with Wireshark and a little Python scripting
