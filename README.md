@@ -16,6 +16,8 @@ Here are some of my favorites:
 
 6. [Onewrite](./Insomnihack2019/onewrite) (Insomnihack 2019): Overwrite a `libc` writable exit handler hook to loop back to the main function and set up a ROP chain. There were many creative solutions to this challenge.
 
+7. [Flackcards and Freedom](./PicoCTF2018/web/FlaskcardsAndFreedom) (PicoCTF2018): a web challenge to remote code execution from a Server-Side Template Injection (SSTI) vulnerability in a Flask site running on Jinja2. This problem was one of two challenges tied for the highest point value in this CTF. I showed a way to get a reverse shell and, after getting the flag during the competition, replicated three different approaches presented in other write-ups.
+
 
 ## By category and technique
 
@@ -148,6 +150,9 @@ Here are some of my favorites:
 3. [Flaskcards](./PicoCTF2018/web/Flaskcards) (PicoCTF 2018): a simple Server-Side Template Injection (SSTI) problem involving a Flask website running on Jinja2.
 
 4. [Flaskcards Skeleton Key](./PicoCTF2018/web/FlaskcardsSkeletonKey) (PicoCTF2018): forge an admin cookie given the secret key to decrypt Flask session cookies.
+
+5. [Flackcards and Freedom](./PicoCTF2018/web/FlaskcardsAndFreedom) (PicoCTF2018): obtain remote code execution from a Server-Side Template Injection (SSTI) vulnerability in a Flask site running on Jinja2. I showed a way to get a reverse shell and, after solving it, replicated three different approaches presented in other write-ups.
+
 
 ### Forensics Challenges
 
