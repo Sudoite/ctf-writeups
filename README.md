@@ -160,6 +160,8 @@ Here are some of my favorites:
 
 2. [Core](./PicoCTF2018/forensics/core) (PicoCTF 2018): analyze a core dump
 
+3. [Ext2 Super Magic](./PicoCTF2018/forensics/ext2supermagic) (PicoCTF 2018): extract files from a corrupted `ext2` file system
+
 ### Miscellaneous Challenges
 
 #### Scripting
