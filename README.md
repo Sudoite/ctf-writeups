@@ -141,6 +141,8 @@ Here are some of my favorites:
 
 5. [Silk Road I](./ASISCTF2019/silkroad) (ASIS CTF Quals 2019): This pwnable challenge requires reverse-engineering some code and satisfying a set of constraints to compute a secret key, in order to proceed to the actual vulnerable section of the code.
 
+6. [Keygenme-1](./PicoCTF2018/RE/keygenme-1) (PicoCTF 2018): reverse engineer a program to validate product keys. This one wasn't too tricky.
+
 ### Web Challenges
 
 1. [A Kaley Ceilidh](./PicoCTF2017/kaley-ceilidh) (PicoCTF 2017): A blind NoSQL injection attack on a server running MongoDB and NodeJS. Also covers Http requests in Python. (Solved with hints from other sources)

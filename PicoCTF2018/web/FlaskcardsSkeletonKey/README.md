@@ -8,7 +8,7 @@ Nice! You found out they were sending the Secret_key: a155eb4e1743baef085ff6ecfe
 
 This problem involves forging a session cookie.
 
-### Researching the problem
+### Solution
 
 We already know this web application is running Flask on Jinja2. I want to start by logging in, viewing my session cookie, and decoding it with the secret key.
 
