@@ -1,6 +1,6 @@
 # ctf-writeups
 
-This is a repository of writeups for various CTF challenges. I am intentionally leaving in discussion about where I made mistakes or went down blind alleys, as such occasions can be great learning experiences, both for the person solving the challenge and potentially for the person reading the writeup. I hope they are informative and entertaining! To read a write-up, just click through to the `.md` file with the same name as the challenge.
+This is a repository of writeups for various CTF challenges. I am intentionally leaving in discussion about where I made mistakes or went down blind alleys, as such occasions can be great learning experiences, both for the person solving the challenge and potentially for the person reading the writeup. I hope they are informative and entertaining! 
 
 Here are some of my favorites:
 
