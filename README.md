@@ -166,11 +166,15 @@ Here are some of my favorites:
 
 3. [Ext Super Magic](./PicoCTF2018/forensics/ExtSuperMagic) (PicoCTF 2018): extract files from a corrupted `ext2` file system.
 
-### Miscellaneous Challenges
+### General Skills
 
 #### Scripting
 
 1. [Script Me](./PicoCTF2018/misc/scriptme)(PicoCTF 2018): fun with parentheses math.
+
+#### Random Number Generators
+
+1. [Roulette](./PicoCTF2018/misc/roulette)(PicoCTF 2018): exploit a program with a poor random seed and unsafe casting of an unsigned long to a signed long.
 
 ## By Language
 
