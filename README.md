@@ -127,6 +127,8 @@ Here are some of my favorites:
 
 5. [SpyFi](./PicoCTF2018/crypto/SpyFi) (PicoCTF 2018): a chosen plaintext attack on AES using Electronic Code Book (ECB) mode.
 
+6. [Smallsign](./PicoCTF2017/smallsign) (PicoCTF 2017): forge an RSA signature using a chosen plaintext attack by taking advantage of smooth numbers.
+
 #### RSA
 
 1. [Super Safe RSA 2](./PicoCTF2018/crypto/SuperSafeRSA2) (PicoCTF 2018): an application of Weiner's attack in the case of small `d`.
