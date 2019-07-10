@@ -16,7 +16,7 @@ Here are some of my favorites:
 
 6. [Onewrite](./Insomnihack2019/onewrite) (Insomnihack 2019): Overwrite a `libc` writable exit handler hook to loop back to the main function and set up a ROP chain. There were many creative solutions to this challenge.
 
-7. [Flackcards and Freedom](./PicoCTF2018/web/FlaskcardsAndFreedom) (PicoCTF2018): a web challenge to remote code execution from a Server-Side Template Injection (SSTI) vulnerability in a Flask site running on Jinja2. This problem was one of two challenges tied for the highest point value in this CTF. I showed a way to get a reverse shell and, after getting the flag during the competition, replicated three different approaches presented in other write-ups.
+7. [Flaskcards and Freedom](./PicoCTF2018/web/FlaskcardsAndFreedom) (PicoCTF2018): a web challenge to remote code execution from a Server-Side Template Injection (SSTI) vulnerability in a Flask site running on Jinja2. This problem was one of two challenges tied for the highest point value in this CTF. I showed a way to get a reverse shell and, after getting the flag during the competition, replicated three different approaches presented in other write-ups.
 
 
 ## By category and technique
@@ -157,10 +157,12 @@ Here are some of my favorites:
 
 5. [Flackcards and Freedom](./PicoCTF2018/web/FlaskcardsAndFreedom) (PicoCTF2018): obtain remote code execution from a Server-Side Template Injection (SSTI) vulnerability in a Flask site running on Jinja2. I showed a way to get a reverse shell and, after solving it, replicated three different approaches presented in other write-ups.
 
+6. [A Simple Question](./PicoCTF2018/web/ASimpleQuestion) (PicoCTF2018): Python implementation of an automated blind SQL injection exploit. (A solution with `SQLMap` is also presented, but I learned more from writing my own code to solve the challenge.)
+
 
 ### Forensics Challenges
 
-1. [Puzzlingly Accountable](./PicoCTF2017/puzzlingly-accountable): a simple extraction of PNG files from a PCAP problem with Wireshark and a little Python scripting.
+1. [Puzzlingly Accountable](./PicoCTF2017/puzzlingly-accountable) (PicoCTF 2017): a simple extraction of PNG files from a PCAP problem with Wireshark and a little Python scripting.
 
 2. [Core](./PicoCTF2018/forensics/core) (PicoCTF 2018): analyze a core dump.
 
@@ -170,11 +172,11 @@ Here are some of my favorites:
 
 #### Scripting
 
-1. [Script Me](./PicoCTF2018/misc/scriptme)(PicoCTF 2018): fun with parentheses math.
+1. [Script Me](./PicoCTF2018/misc/scriptme) (PicoCTF 2018): fun with parentheses math.
 
 #### Random Number Generators
 
-1. [Roulette](./PicoCTF2018/misc/roulette)(PicoCTF 2018): exploit a program with a poor random seed and unsafe casting of an unsigned long to a signed long.
+1. [Roulette](./PicoCTF2018/misc/roulette) (PicoCTF 2018): exploit a program with a poor random seed and unsafe casting of an unsigned long to a signed long.
 
 ## By Language
 
