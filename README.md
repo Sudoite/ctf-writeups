@@ -151,6 +151,8 @@ Here are some of my favorites:
 
 6. [Keygenme-1](./PicoCTF2018/RE/keygenme-1) (PicoCTF 2018): reverse-engineer a program to validate product keys. This one wasn't too tricky.
 
+7. [Lithp](./AngstromCTF2019/lithp) (AngstromCTF 2019): easy Lisp reversing problem.
+
 ### Web Challenges
 
 1. [A Kaley Ceilidh](./PicoCTF2017/kaley-ceilidh) (PicoCTF 2017): a blind NoSQL injection attack on a server running MongoDB and NodeJS. The problem also covers Http requests in Python. (Solved with hints from other sources.)
@@ -191,6 +193,10 @@ Here are some of my favorites:
 ### Objective-C
 
 1. [Turtles](./CSAW2018/turtles): a binary exploitation problem using ROP, heap exploitation, and a format string vulnerability.
+
+### Lisp
+
+1. [Lithp](./AngstromCTF2019/lithp) (AngstromCTF 2019): easy Lisp reversing problem.
 
 ### Esoteric Languages
 
