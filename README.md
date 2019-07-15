@@ -18,6 +18,8 @@ Here are some of my favorites:
 
 7. [Flaskcards and Freedom](./PicoCTF2018/web/FlaskcardsAndFreedom) (PicoCTF2018): a web challenge to remote code execution from a Server-Side Template Injection (SSTI) vulnerability in a Flask site running on Jinja2. This problem was one of two challenges tied for the highest point value in this CTF. I showed a way to get a reverse shell and, after getting the flag during the competition, replicated three different approaches presented in other write-ups.
 
+8. [Magic Padding Oracle](./PicoCTF2018/crypto/MagicPaddingOracle) (PicoCTF 2018): exploit a PKCS7 CBC padding oracle vulnerability to decrypt a server cookie and encrypt a forged cookie. To learn the technique, I implemented my own Python functions instead of using an online library.
+
 
 ## By category and technique
 
@@ -128,6 +130,8 @@ Here are some of my favorites:
 5. [SpyFi](./PicoCTF2018/crypto/SpyFi) (PicoCTF 2018): a chosen plaintext attack on AES using Electronic Code Book (ECB) mode.
 
 6. [Smallsign](./PicoCTF2017/smallsign) (PicoCTF 2017): forge an RSA signature using a chosen plaintext attack by taking advantage of smooth numbers.
+
+7. [Magic Padding Oracle](./PicoCTF2018/crypto/MagicPaddingOracle) (PicoCTF 2018): exploit a PKCS7 CBC padding oracle vulnerability to decrypt a server cookie and encrypt a forged cookie. To learn the technique, I implemented my own Python functions instead of using an online library.
 
 #### RSA
 
