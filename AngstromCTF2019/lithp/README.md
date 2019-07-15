@@ -1,13 +1,12 @@
 # Lithp
 
-This was a fairly simple problem from Angstrom CTF 2019, a high school CTF similar to PicoCTF. I found it to be a helpful review of some basic Lisp, as I am a bit of a Lisp newbie (see, however, _Structure and Interpretation of Computer Programs_) for good practice with Lisp and Scheme). I thought I would stretch my Lisp muscles a bit with this problem.
+This was a fairly simple problem from Angstrom CTF 2019, a high school CTF similar to PicoCTF. I found it to be a helpful review of some basic Lisp, as I am a bit of a Lisp newbie (see, however, _Structure and Interpretation of Computer Programs_) for good practice with Scheme, a Lisp-based language). I thought I would stretch my Lisp muscles a bit with this problem.
 
 ### Problem Description
 
 This is basically a reverse-engineering problem. [Here](./lithp.lisp) is the source code:
 
-```
-#!/usr/bin/env csi
+```common-lisp
 ;LITHP
 
 (defparameter *encrypted* '(8930 15006 8930 10302 11772 13806 13340 11556 12432 13340 10712 10100 11556 12432 9312 10712 10100 10100 8930 10920 8930 5256 9312 9702 8930 10712 15500 9312))
