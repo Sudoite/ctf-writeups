@@ -10,6 +10,8 @@ import cPickle
 
 local = False
 BSIZE = 16 # block size. The code would be more elegant if I were to actually use this...
+decrypt = False # Make this true to decrypt the server cookie (first half of problem), 
+				# otherwise skip that and forge the fake cookie (second half of problem)
 
 def spawn_process(local=True):
 	if local:
@@ -128,7 +130,6 @@ def guess_is_right(guessed_ciphertext):
 		#File "/usr/lib/python2.7/json/decoder.py", line 380, in raw_decode
 		#		obj, end = self.scan_once(s, idx)
 		#ValueError: Unterminated string starting at: line 1 column 14 (char 13)
-		#p.interactive()
 		p.close()
 		return True
 
@@ -162,7 +163,6 @@ def make_a_guess(ctext, ctext_block_index, msg_block, padding, guess, guess_offs
 	result = guess_is_right(input_for_server)
 	print(result)
 	return result
-
 
 # Now I need to guess a byte and return the decrypted byte
 def guess_byte(ctext, ctext_block_index, msg_block, padding):
@@ -268,7 +268,6 @@ def determine_message_padding(ctext):
 				padding = candidate_padding
 	return padding
 
-
 # And now I want to determine the last message block with a single function
 def guess_last_message_block(ctext):
 	n_blocks = len(ctext)/32
@@ -289,9 +288,7 @@ def guess_last_message_block(ctext):
 	print("Just decrypted a message block: " + msg_block)
 	return msg_block
 
-
-
-
+# Do the full decryption.
 def decrypt(ctext, filename_stem = "./saved_message_block_"):
 	n_blocks = len(ctext)/32
 	message = ""
@@ -309,6 +306,8 @@ def decrypt(ctext, filename_stem = "./saved_message_block_"):
 		message += this_message_block
 	print("Full message: " + message)
 	print("Unhexlified message: " + binascii.unhexlify(message))
+
+########     E  N  C  R  Y  P  T  I  O  N     F  U  N  C  T  I  O  N  S   #########
 
 # There's a 1/256 chance this will fail because randomly the last bit in the 
 # decrypted message is 0x01. To make this more robust, I should probably 
@@ -332,28 +331,28 @@ def decrypt_random_block(ctext, filename_stem = "./saved_message_block_"):
 	return(message)
 
 
+def flip_ct_bits(plaintext_block_n_original, plaintext_block_n_modified, ctext_block_n_minus_1):
+	return xor_two_hex_strings(xor_two_hex_strings(plaintext_block_n_original, plaintext_block_n_modified), ctext_block_n_minus_1)
 
+
+
+########     S  O  L  U  T  I  O  N     #########
 
 
 p = spawn_process(local=local)
 
-p.readuntil(": ")
-ctext = p.readuntil("\n")
-# strip trailing newline
-ctext = ctext[0:len(ctext)-1]
-print("ciphertext = " + ctext)
-print("ciphertext length = " + str(len(ctext)))
 
+## Decrypt the sample cookie.
+
+# Just copied from the server...
 ctext = "5468697320697320616e204956343536bade59109764febea2c7750a4dae94dc9d494afe7d2f6f65fb1396791585bc03001275db3d5dc7666a39a5b1159e261a7bce4dd133a77c975cbba1ddb3751bc69f88ebbf9d2ca59cda28230eddb23e16"
 
+if decrypt:
+	cookie = decrypt(ctext)
+	print("The decrypted cookie is " + cookie)
+	exit(0)
 
-
-
-cookie = decrypt(ctext)
-print("The decrypted cookie is " + cookie)
-
-########     E  N  C  R  Y  P  T  I  O  N     F  U  N  C  T  I  O  N  S     #########
-
+## Encrypt a fake cookie.
 
 ### TODO for a library function: just take the remaining code here and make it into its 
 ### own function, and improve on step 3 as explained in the comments.
@@ -383,8 +382,10 @@ last_ct_block = "00"*16
 IV = binascii.hexlify("ABCDEFGHIJKLMNOP")
 
 ## 3. Determine the value of the plaintext that would have produced that random message.
-##    Keep in mind that for this submission treat it like a message chunk that 
-##    does not end in padding
+##    For this submission I can probably treat it like a message chunk that 
+##    does not end in padding. In theory the plaintext could accidentally end 
+##    in something like (0x02, 0x02), so I would need to deal with that when 
+##    generalizing this into a library function, but for now I'll ignore that edge case.
 this_ct = IV + last_ct_block
 print("this_ct = " + this_ct)
 this_msg = decrypt_random_block(this_ct, filename_stem = "./saved_remote_forged_message_pass_1_block_")
@@ -393,9 +394,6 @@ print("this_msg = " + str(this_msg))
 
 ## 4. Bit-flip the IV to produce the desired plaintext and confirm it works. 
 ##    (This first plaintext needs to contain the padding bytes.)
-def flip_ct_bits(plaintext_block_n_original, plaintext_block_n_modified, ctext_block_n_minus_1):
-	return xor_two_hex_strings(xor_two_hex_strings(plaintext_block_n_original, plaintext_block_n_modified), ctext_block_n_minus_1)
-
 n = len(msg_blocks)
 print("n = " + str(n))
 new_ct_n_minus_1 = flip_ct_bits(plaintext_block_n_original=this_msg, 
@@ -426,3 +424,6 @@ for i in range(0,n-1):
 	print("i = " + str(i) + ". New ciphertext to produce desired final message block(s): " + ct)
 	save_message_block(ct, filename="./saved_remote_ct_round_"+str(i))
 exit(0)
+
+## The ciphertext for the forged cookie is just the last value of ct to be printed.
+## Submit it to the server for the flag.
