@@ -14,7 +14,7 @@
 (defun multh (plain)
     (cond
         ((null plain) nil)
-        (t (cons (multiply (- 1 (car plain)) (car plain)) (multh (cdr plain))))))
+        (t (cons (whats-this (- 1 (car plain)) (car plain)) (multh (cdr plain))))))
 
 (defun owo (inpth)
     (setf out nil)
@@ -22,9 +22,9 @@
         ((null redth) out)
         (setq out (append out (list (nth (car redth) inpth))))))
 
-(defun multiply (x y)
+(defun whats-this (x y)
     (cond
         ((equal y 0) 0)
-        (t (+ (multiply x (- y 1)) x))))
+        (t (+ (whats-this x (- y 1)) x))))
 
 ;flag was encrypted with (enc *flag*) to give *encrypted*
