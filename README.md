@@ -181,6 +181,8 @@ Here are some of my favorites:
 
 3. [Ext Super Magic](./PicoCTF2018/forensics/ExtSuperMagic) (PicoCTF 2018): extract files from a corrupted `ext2` file system.
 
+4. [Load Some Bits](./PicoCTF2018/forensics/LoadSomeBits) (PicoCTF 2018): extract the flag from the least significant bits of an image file.
+
 ### General Skills
 
 #### Scripting
@@ -223,10 +225,18 @@ Here are some of my favorites:
 
 ## By Tool
 
-(This section is mostly here to remind myself of various tricks to use when using tools.)
+(This section is mostly here to remind myself of various tricks to use when using tools. Many of these are from other write-ups that I read after finishing my own write-ups.)
 
 ### GDB
 
 1. [pwn5](./TAMUCTF2019/pwn5) (TAMUCTF 2019): I used `set follow-fork-mode parent` to step over a call to fork `execve`.
 
 2. [core](./PicoCTF2018/forensics/core) (PicoCTF 2018): I used `gdb [binary] [core]` to analyze a core dump.
+
+### Pwntools
+
+1. [Echo Back](./PicoCTF2018/pwn/echoback) (PicoCTF 2018): I reference another write-up that uses Pwntools to automatically write format strings that write arbitrary bytes to arbitrary memory addresses, as well as syntax for directly identifying addresses of function references in the GOT and PLT.
+
+### Python Tricks
+
+1. [Load Some Bits](./PicoCTF2018/forensics/LoadSomeBits) (PicoCTF 2018): in referencing other solutions, I note a technique for reading the raw bytes of a file using memory mapping.
