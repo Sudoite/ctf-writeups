@@ -80,6 +80,7 @@ Here are some of my favorites:
 
 3. [Flagsay-2](./PicoCTF2017/flagsay-2) (PicoCTF 2017): a straightforward overwrite of the Global Offset Table.
 
+4. [Echo Back](./PicoCTF2018/pwn/echoback) (PicoCTF 2018): implementation of a library function to perform format string writes to arbitrary locations in memory for 32-bit architectures. This problem had multiple possible solutions and mine was quite different.
 
 #### Shellcode
 
@@ -133,6 +134,8 @@ Here are some of my favorites:
 
 7. [Magic Padding Oracle](./PicoCTF2018/crypto/MagicPaddingOracle) (PicoCTF 2018): exploit a PKCS7 CBC padding oracle vulnerability to decrypt a server cookie and encrypt a forged cookie. To learn the technique, I implemented my own Python functions instead of using an online library.
 
+8. [Secure Logon](./PicoCTF2018/web/SecureLogon) (PicoCTF 2018): modify the IV of a cookie encrypted using AES in CBC mode to change the plaintext of the decrypted cookie.
+
 #### RSA
 
 1. [Super Safe RSA 2](./PicoCTF2018/crypto/SuperSafeRSA2) (PicoCTF 2018): an application of Weiner's attack in the case of small `d`.
@@ -166,6 +169,8 @@ Here are some of my favorites:
 5. [Flackcards and Freedom](./PicoCTF2018/web/FlaskcardsAndFreedom) (PicoCTF2018): obtain remote code execution from a Server-Side Template Injection (SSTI) vulnerability in a Flask site running on Jinja2. I showed a way to get a reverse shell and, after solving it, replicated three different approaches presented in other write-ups.
 
 6. [A Simple Question](./PicoCTF2018/web/ASimpleQuestion) (PicoCTF2018): Python implementation of an automated blind SQL injection exploit. (A solution with `SQLMap` is also presented, but I learned more from writing my own code to solve the challenge.)
+
+7. [Secure Logon](./PicoCTF2018/web/SecureLogon) (PicoCTF 2018): modify the IV of a cookie encrypted using AES in CBC mode to change the plaintext of the decrypted cookie.
 
 
 ### Forensics Challenges
