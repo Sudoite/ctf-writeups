@@ -38,11 +38,13 @@ Here are some of my favorites:
 5. [Heap Golf](./SwampCTF2019/heapgolf) (Swamp CTF 2019): a simple heap problem illustrating how fastbins work.
 
 
-###### Use After Free
+###### Use After Free (UAF)
 
 1. [Aggregator](./PicoCTF2017/aggregator) (PicoCTF 2017): overwriting the Global Offset Table using Use After Free.
 
 2. [Contact Helper](./PicoCTF2017/contact-helper) (PicoCTF 2017): an unintended solution to a heap exploitation problem with a UAF vulnerability.
+
+3. [Are You Root?](./PicoCTF2018/pwn/areyouroot) (PicoCTF 2018): introductory UAF problem, very straightforward.
 
 #### ROP Chain
 
@@ -236,6 +238,8 @@ Here are some of my favorites:
 ### Pwntools
 
 1. [Echo Back](./PicoCTF2018/pwn/echoback) (PicoCTF 2018): I reference another write-up that uses Pwntools to automatically write format strings that write arbitrary bytes to arbitrary memory addresses, as well as syntax for directly identifying addresses of function references in the GOT and PLT.
+
+2. [Are You Root?](./PicoCTF2018/pwn/areyouroot) (PicoCTF 2018): reference to the use of `p.sendafter()` syntax in `pwntools`.
 
 ### Python Tricks
 
