@@ -158,6 +158,8 @@ Here are some of my favorites:
 
 7. [Lithp](./AngstromCTF2019/lithp) (AngstromCTF 2019): easy Lisp reversing problem.
 
+8. [assembly-4](./PicoCTF2018/RE/assembly-4) (PicoCTF 2018): compile a NASM file, straightforward.
+
 ### Web Challenges
 
 1. [A Kaley Ceilidh](./PicoCTF2017/kaley-ceilidh) (PicoCTF 2017): a blind NoSQL injection attack on a server running MongoDB and NodeJS. The problem also covers Http requests in Python. (Solved with hints from other sources.)
@@ -244,3 +246,7 @@ Here are some of my favorites:
 ### Python Tricks
 
 1. [Load Some Bits](./PicoCTF2018/forensics/LoadSomeBits) (PicoCTF 2018): in referencing other solutions, I note a technique for reading the raw bytes of a file using memory mapping.
+
+### NASM
+
+1. [Assembly-4](./PicoCTF2018/RE/assembly-4) (PicoCTF 2018): syntax for compiling a NASM file.
