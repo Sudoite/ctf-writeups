@@ -46,7 +46,7 @@ Okay, now just for my own edification, I want to figure out Euler's totient give
 
 ### Additional Research
 
-That Alpertron factorization site uses the [Elliptic-Curve Factorization Method](https://en.wikipedia.org/wiki/Lenstra_elliptic_curve_factorization)(ECM), which appears to work for factors up to about 60 digits in length.
+That Alpertron factorization site uses the [Elliptic-Curve Factorization Method](https://en.wikipedia.org/wiki/Lenstra_elliptic_curve_factorization) (ECM), which appears to work for factors up to about 60 digits in length.
 
 [Here's](https://www.dcode.fr/euler-totient) a description of how to get Euler's totient:
 
@@ -88,6 +88,6 @@ where `r` is the list of prime factors of `n`. Indeed, it's easy to see that the
 
 [d4rkvaibhav](https://github.com/d4rkvaibhav/picoCTF-2018-Writeups/blob/master/Cryptography/Super%20Safe%20RSA%203/README.Md) used the [`factordb`](https://factordb.com/) tool, which is no longer live. They also [implement](https://github.com/d4rkvaibhav/picoCTF-2018-Writeups/blob/master/Cryptography/Super%20Safe%20RSA%203/super3.py) the Euclidean algorithm to compute modular inverses, cute. [tcode2k16](https://tcode2k16.github.io/blog/posts/picoctf-2018-writeup/cryptography/#super-safe-rsa-3) and [Dark Knights](https://github.com/mzfr/ctf-writeups/blob/master/picoCTF-2018/Cryptography/rsa-madlibs/calculate-d.py) also use the Euclidean algorithm, instead of the `gmpy2` Python package as I did. [Liuhack](https://github.com/liuhack/writeups/blob/master/2018/picoCTF/Super_safe_RSA3/README.md) uses the Chinese Remainder Theorem to solve it, referencing [this](https://crypto.stackexchange.com/questions/31109/rsa-enc-decryption-with-multiple-prime-modulus-using-crt) forum post. This last approach might be the most computationally-efficient way to go in cases where the factors of `n` are still by themselves fairly large.
 
-[W3ndige](https://www.rootnetsec.com/picoctf-2018-super-safe-rsa-3/)references a useful [write-up](https://github.com/p4-team/ctf/tree/master/2016-03-12-0ctf/rsa) concerning a harder scenario where `gcd(e, totient) != 1`.
+[W3ndige](https://www.rootnetsec.com/picoctf-2018-super-safe-rsa-3/) references a useful [write-up](https://github.com/p4-team/ctf/tree/master/2016-03-12-0ctf/rsa) concerning a harder scenario where `gcd(e, totient) != 1`.
 
 It would seem that [Liuhack](https://github.com/liuhack/writeups/blob/master/2018/picoCTF/Super_safe_RSA3/README.md) gets an honorable mention here for the most mathematically distinct solution.
