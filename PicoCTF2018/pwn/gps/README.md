@@ -123,7 +123,7 @@ That also gives me a shell. Great! So now I have my shellcode. Of course I could
 
 ### Figuring out how to use the 'GPS' to jump to my shellcode
 
-(Hey, why was I reading the code in `IDA Pro` last night? I had the source code!!) Let's see what `query_position()` does:
+(Hey, why was I reading the assembly in `IDA Pro`? I had the source code!!) Let's see what `query_position()` does:
 
 ```c
 void *query_position() {
@@ -134,7 +134,7 @@ void *query_position() {
 }
 ```
 
-.* Okay, so what's the GPS accuracy? `1337`, of course. So, I won't know the exact location of a pointer on the stack, but I'll know it to within `668` bytes. My buffer can contain `0x1000` bytes, so I'll preface my shellcode with a NOP sled containing `1337` bytes, and then just jump to the middle of the sled. Easy enough.
+Okay, so what's the GPS accuracy? `1337`, of course. So, I won't know the exact location of a pointer on the stack, but I'll know it to within `668` bytes. My buffer can contain `0x1000` bytes, so I'll preface my shellcode with a NOP sled containing `1337` bytes, and then just jump to the middle of the sled. Easy enough.
 
 So in `gdb` I ran the program once, put a breakpoint right after returning from the `scanf` call getting data for the  "Where do we start?" prompt, and calculated the offset between the location and halfway through the NOP sled. That was `0x39b` in my case. So I just add that offset to the returned address and enter it for the location.
 
