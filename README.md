@@ -144,6 +144,8 @@ Here are some of my favorites:
 
 1. [Super Safe RSA 2](./PicoCTF2018/crypto/SuperSafeRSA2) (PicoCTF 2018): an application of Weiner's attack in the case of small `d`.
 
+2. [Super Safe RSA 3](./PicoCTF2018/crypto/SuperSafeRSA3) (PicoCTF 2018): multi-factor RSA solution.
+
 ### Reverse Engineering Challenges
 
 1. [MIPS](./PicoCTF2017/MIPS) (PicoCTF 2017): reversing a MIPS binary containing branch-delay slots; usage of the SPIM simulator
@@ -231,9 +233,9 @@ Here are some of my favorites:
 
 1. [MIPS](./PicoCTF2017/MIPS) (PicoCTF 2017): an example of reversing a MIPS binary containing branch-delay slots; I also used the SPIM simulator.
 
-## By Tool
+## Tricks
 
-(This section is mostly here to remind myself of various tricks to use when using tools. Many of these are from other write-ups that I read after finishing my own write-ups.)
+(This section is mostly here to remind myself of various tricks to use, mostly when using tools. Many of these are from other write-ups that I read after finishing my own write-ups.)
 
 ### GDB
 
@@ -262,3 +264,9 @@ Here are some of my favorites:
 ### Web Tools
 
 1. [Help Me Reset 2](./PicoCTF2018/web/HelpMeReset2) (PicoCTF 2018): another write-up references the [`dirsearch`](https://github.com/maurosoria/dirsearch) tool.
+
+### Cryptography
+
+#### RSA
+
+[P4 blog](https://github.com/p4-team/ctf/tree/master/2016-03-12-0ctf/rsa): what to do when `gcd(e, totient) != 1` for RSA-like problems.
