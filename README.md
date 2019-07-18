@@ -178,6 +178,8 @@ Here are some of my favorites:
 
 7. [Secure Logon](./PicoCTF2018/web/SecureLogon) (PicoCTF 2018): modify the IV of a cookie encrypted using AES in CBC mode to change the plaintext of the decrypted cookie.
 
+8. [Help Me Reset 2](./PicoCTF2018/web/HelpMeReset2) (PicoCTF 2018): Decode a Flask session cookie to get the answers to a user's security questions.
+
 
 ### Forensics Challenges
 
@@ -256,3 +258,7 @@ Here are some of my favorites:
 ### NASM
 
 1. [Assembly-4](./PicoCTF2018/RE/assembly-4) (PicoCTF 2018): syntax for compiling a NASM file.
+
+### Web Tools
+
+1. [Help Me Reset 2](./PicoCTF2018/web/HelpMeReset2) (PicoCTF 2018): another write-up references the [`dirsearch`](https://github.com/maurosoria/dirsearch) tool.
