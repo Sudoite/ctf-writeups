@@ -94,6 +94,8 @@ Here are some of my favorites:
 
 4. [gimmeyourshell](./INSHack2019/pwn/gimmeyourshell) (INSHack 2019): Linux `x86-64` shellcode, executed on the stack.
 
+5. [GPS](./PicoCTF2018/pwn/gps) (PicoCTF 2018): Linux `x86-64` shellcode with a `NOP` sled, executed on the stack. I provide a walkthrough of the process of crafting my own shellcode.
+
 #### Bypassing stack canaries
 
 1. [Terminator Canary](./HackIT2017_pwn200) (HackIT 2017): an example of bypassing a canary using a format string leak.
@@ -158,7 +160,7 @@ Here are some of my favorites:
 
 7. [Lithp](./AngstromCTF2019/lithp) (AngstromCTF 2019): easy Lisp reversing problem.
 
-8. [assembly-4](./PicoCTF2018/RE/assembly-4) (PicoCTF 2018): compile a NASM file, straightforward.
+8. [Assembly 4](./PicoCTF2018/RE/assembly-4) (PicoCTF 2018): compile a NASM file, straightforward.
 
 ### Web Challenges
 
@@ -243,9 +245,13 @@ Here are some of my favorites:
 
 2. [Are You Root?](./PicoCTF2018/pwn/areyouroot) (PicoCTF 2018): reference to the use of `p.sendafter()` syntax in `pwntools`.
 
+3. [GPS](./PicoCTF2018/pwn/gps) (PicoCTF 2018): example of using `shellcraft` in `pwntools` to construct shell code in one of the referenced write-ups.
+
 ### Python Tricks
 
 1. [Load Some Bits](./PicoCTF2018/forensics/LoadSomeBits) (PicoCTF 2018): in referencing other solutions, I note a technique for reading the raw bytes of a file using memory mapping.
+
+2. [GPS](./PicoCTF2018/pwn/gps) (PicoCTF 2018): regular expression matching in Python in one of the referenced write-ups.
 
 ### NASM
 
