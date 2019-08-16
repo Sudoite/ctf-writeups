@@ -164,6 +164,8 @@ Here are some of my favorites:
 
 8. [Assembly 4](./PicoCTF2018/RE/assembly-4) (PicoCTF 2018): compile a NASM file, straightforward.
 
+9. [Special-pw](./PicoCTF2018/RE/special-pw) (PicoCTF 2018): a solution in Python to reverse-engineer bit shifting operations to decrypt a key.
+
 ### Web Challenges
 
 1. [A Kaley Ceilidh](./PicoCTF2017/kaley-ceilidh) (PicoCTF 2017): a blind NoSQL injection attack on a server running MongoDB and NodeJS. The problem also covers Http requests in Python. (Solved with hints from other sources.)
