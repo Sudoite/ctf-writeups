@@ -74,6 +74,8 @@ Here are some of my favorites:
 
 3. [Onewrite](./Insomnihack2019/onewrite) (Insomnihack 2019): a 64-bit ROP chain and statically-linked binary, but definitely non-trivial!
 
+4. [can-you-gets-me](./PicoCTF2018/pwn/can-you-gets-me) (PicoCTF 2018): a 32-bit ROP chain with a statically-linked binary.
+
 #### Format Strings
 
 1. [Turtles](./CSAW2018/turtles) (CSAW2018): a straightforward information leak.
