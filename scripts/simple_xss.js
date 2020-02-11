@@ -1,1 +1,1 @@
-<script>alert(0)</script>
+alert(0)
