@@ -74,6 +74,8 @@ Here are some of my favorites:
 
 3. [Onewrite](./Insomnihack2019/onewrite) (Insomnihack 2019): a 64-bit ROP chain and statically-linked binary, but definitely non-trivial!
 
+4. [can-you-gets-me](./PicoCTF2018/pwn/can-you-gets-me) (PicoCTF 2018): a 32-bit ROP chain with a statically-linked binary.
+
 #### Format Strings
 
 1. [Turtles](./CSAW2018/turtles) (CSAW2018): a straightforward information leak.
@@ -163,6 +165,8 @@ Here are some of my favorites:
 7. [Lithp](./AngstromCTF2019/lithp) (AngstromCTF 2019): easy Lisp reversing problem.
 
 8. [Assembly 4](./PicoCTF2018/RE/assembly-4) (PicoCTF 2018): compile a NASM file, straightforward.
+
+9. [Special-pw](./PicoCTF2018/RE/special-pw) (PicoCTF 2018): a solution in Python to reverse-engineer bit shifting operations to decrypt a key.
 
 ### Web Challenges
 
